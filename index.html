@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Serena Cosmetics</title>
+  <meta name="description" content="Serena Cosmetics — Skincare y maquillaje de calidad.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --rosa: #F3A5BC;
+      --morado: #A88AED;
+      --azul: #4E7AB1;
+      --verde: #8FB78F;
+      --fondo: #ffffff;
+      --texto: #2a2a2a;
+      --gris: #f3f3f3;
+    }
+
+    body{
+      margin:0;
+      font-family: Inter, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+    }
+
+    header{
+      width:100%;
+      background:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 26px;
+      border-bottom:1px solid #e6e6e6;
+      position:sticky;
+      top:0;
+      z-index:50;
+    }
+
+    .logo{
+      font-size:22px;
+      font-weight:700;
+      color:var(--morado);
+    }
+
+    nav{
+      display:flex;
+      gap:22px;
+      font-size:15px;
+    }
+
+    nav a{
+      color:var(--texto);
+      text-decoration:none;
+      font-weight:500;
+    }
+
+    nav a:hover{
+      color:var(--morado);
+    }
+
+    /* CARRUSEL */
+    .carrusel{
+      width:100%;
+      height:380px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .carrusel img{
+      width:100%;
+      height:380px;
+      object-fit:cover;
+      position:absolute;
+      top:0;
+      left:0;
+      opacity:0;
+      transition:opacity 1s ease;
+    }
+
+    .carrusel img.activa{
+      opacity:1;
+    }
+
+    .btn-contactar{
+      position:absolute;
+      bottom:30px;
+      left:50%;
+      transform:translateX(-50%);
+      background:var(--morado);
+      color:white;
+      padding:12px 20px;
+      border-radius:25px;
+      text-decoration:none;
+      font-weight:600;
+      font-size:16px;
+      transition:0.3s;
+    }
+
+    .btn-contactar:hover{
+      background:var(--rosa);
+    }
+
+    /* CATÁLOGO DESLIZABLE */
+    .catalogo{
+      padding:40px 26px;
+    }
+
+    .titulo-seccion{
+      font-size:26px;
+      font-weight:700;
+      margin-bottom:18px;
+      color:var(--morado);
+    }
+
+    .slider-productos{
+      position:relative;
+      display:flex;
+      align-items:center;
+    }
+
+    .flecha{
+      width:36px;
+      height:36px;
+      border-radius:50%;
+      background:var(--gris);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      cursor:pointer;
+      position:absolute;
+      z-index:5;
+      transition:0.3s;
+    }
+
+    .flecha:hover{
+      background:var(--rosa);
+      color:white;
+    }
+
+    .izq{ left:-10px; }
+    .der{ right:-10px; }
+
+    .lista-productos{
+      display:flex;
+      gap:16px;
+      overflow-x:auto;
+      scroll-behavior:smooth;
+      padding-bottom:10px;
+    }
+
+    .lista-productos::-webkit-scrollbar{ display:none; }
+
+    .producto{
+      min-width:180px;
+      background:white;
+      border-radius:14px;
+      border:1px solid #eee;
+      padding:12px;
+      box-shadow:0 3px 8px rgba(0,0,0,0.05);
+      text-align:center;
+      transition:0.3s;
+    }
+
+    .producto:hover{
+      transform:translateY(-5px);
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .producto img{
+      width:100%;
+      height:150px;
+      object-fit:cover;
+      border-radius:10px;
+    }
+
+    .producto a{
+      display:block;
+      margin-top:8px;
+      background:var(--morado);
+      color:white;
+      padding:8px 10px;
+      border-radius:20px;
+      text-decoration:none;
+      font-size:14px;
+    }
+
+    /* SECCIÓN NOSOTROS */
+    .nosotros{
+      padding:40px 26px;
+      background:var(--gris);
+      border-top:1px solid #eee;
+      border-bottom:1px solid #eee;
+    }
+
+    .nosotros p{
+      max-width:700px;
+      line-height:1.6;
+    }
+
+    /* CONTACTO */
+    .contacto{
+      padding:40px 26px;
+    }
+
+    .contacto-info{
+      background:white;
+      padding:20px;
+      border-radius:14px;
+      border:1px solid #eee;
+      max-width:500px;
+    }
+
+    footer{
+      margin-top:40px;
+      padding:20px;
+      text-align:center;
+      font-size:14px;
+      color:#777;
+      border-top:1px solid #ddd;
+    }
+  </style>
+
+</head>
+<body>
+
+<header>
+  <div class="logo">Serena Cosmetics</div>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="skincare.html">Skincare</a>
+    <a href="maquillaje.html">Maquillaje</a>
+    <a href="#contacto">Contacto</a>
+    <a href="nosotros.html">Nosotros</a>
+  </nav>
+</header>
+
+<!-- CARRUSEL -->
+<section class="carrusel">
+  <img src="img/slide1.jpg" class="activa" alt="Imagen 1">
+  <img src="img/slide2.jpg" alt="Imagen 2">
+  <img src="img/slide3.jpg" alt="Imagen 3">
+
+  <a href="#contacto" class="btn-contactar">Contactar</a>
+</section>
+
+<!-- CATÁLOGO -->
+<section class="catalogo">
+  <div class="titulo-seccion">Catálogo destacado</div>
+
+  <div class="slider-productos">
+    <div class="flecha izq" onclick="scrollLeft()">‹</div>
+
+    <div class="lista-productos" id="listaProductos">
+      <div class="producto">
+        <img src="img/p1.jpg" alt="Producto 1">
+        <div>Producto 1</div>
+        <a href="producto.html">Ver más</a>
+      </div>
+      <div class="producto">
+        <img src="img/p2.jpg" alt="Producto 2">
+        <div>Producto 2</div>
+        <a href="producto.html">Ver más</a>
+      </div>
+      <div class="producto">
+        <img src="img/p3.jpg" alt="Producto 3">
+        <div>Producto 3</div>
+        <a href="producto.html">Ver más</a>
+      </div>
+      <!-- Puedes duplicar más productos -->
+    </div>
+
+    <div class="flecha der" onclick="scrollRight()">›</div>
+  </div>
+</section>
+
+<!-- NOSOTROS RESUMIDO -->
+<section class="nosotros">
+  <div class="titulo-seccion">¿Quiénes somos?</div>
+  <p>En Serena Cosmetics creemos en la belleza real y accesible. Cada producto está diseñado para cuidar tu piel con ingredientes seguros, suaves y efectivos. Nuestro objetivo es que cada persona pueda sentirse hermosa, segura y acompañada en el proceso de cuidar su piel.</p>
+</section>
+
+<!-- CONTACTO -->
+<section class="contacto" id="contacto">
+  <div class="titulo-seccion">Contacto</div>
+  <div class="contacto-info">
+    <p><strong>Email:</strong> contacto@serena.com</p>
+    <p><strong>Instagram:</strong> @serena.cosmetics</p>
+    <p><strong>WhatsApp:</strong> +00 000 0000</p>
+  </div>
+</section>
+
+<footer>
+  © 2025 Serena Cosmetics — Todos los derechos reservados
+</footer>
+
+<script>
+// Carrusel automático
+let indice = 0;
+const imagenes = document.querySelectorAll('.carrusel img');
+
+function cambiarSlide(){
+  imagenes[indice].classList.remove('activa');
+  indice = (indice + 1) % imagenes.length;
+  imagenes[indice].classList.add('activa');
+}
+setInterval(cambiarSlide, 4000);
+
+// Slider productos
+const lista = document.getElementById('listaProductos');
+function scrollLeft(){ lista.scrollBy({left:-200, behavior:'smooth'}); }
+function scrollRight(){ lista.scrollBy({left:200, behavior:'smooth'}); }
+</script>
+
+</body>
+</html>
